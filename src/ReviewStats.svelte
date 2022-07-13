@@ -2,7 +2,7 @@
   export let reviews;
 
   $: count = reviews.length;
-  $: averageTotal = reviews.reduce((prev, {score}) => prev + score, 0) / reviews.length;
+  $: averageTotal = (reviews.reduce((prev, {score}) => prev + score, 0) / reviews.length).toFixed(1);
 </script>
 
 <div class="review-stats">

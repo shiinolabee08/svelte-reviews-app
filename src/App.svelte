@@ -1,6 +1,7 @@
 <script>
 	import Reviews from './Reviews.svelte'
 	import ReviewStats from './ReviewStats.svelte';
+	import ReviewForm from './ReviewForm.svelte';
 
 	let reviews = [];
 	let maxReviewScore = 10;
@@ -38,9 +39,15 @@
 		}
 	}
 
+	const handleAddReviewAction = (e) => {
+		const newReview = e.detail;
+		reviews = [...reviews, newReview];
+	}
+
 </script>
 
 <main class="container">
+	<ReviewForm {maxReviewScore} {minReviewScore} on:add-new-review={handleAddReviewAction}/>
 	<ReviewStats {reviews}/>
 	<Reviews {reviews} on:handle-review={handleReviewAction}/>
 </main>
