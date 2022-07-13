@@ -1,4 +1,5 @@
 <script>
+  import { v4 as uuidv4 } from 'uuid';
 	import Reviews from './Reviews.svelte'
 	import ReviewStats from './ReviewStats.svelte';
 	import ReviewForm from './ReviewForm.svelte';
@@ -9,7 +10,7 @@
 
 	for(let i=0; i <= 4; i++) {
 		reviews.push({
-			id: i,
+			id: uuidv4(),
 			score: Math.floor(Math.random() * (maxReviewScore - minReviewScore) + minReviewScore),
 			approved: false,
 			isUpdated: false,
